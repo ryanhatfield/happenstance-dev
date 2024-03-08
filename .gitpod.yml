@@ -19,6 +19,7 @@ tasks:
     echo "Installing Wordpress..."
     docker exec -it gitpod-wpdev-wordpress wp core install --url="8000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --title="Gitpod Wordpress Development" --admin_user="admin" --admin_password="admin" --admin_email="you@example.com" --skip-email --allow-root
     docker exec -it gitpod-wpdev-wordpress wp theme install happenstance --activate --allow-root
+    docker exec -it gitpod-wpdev-wordpress wp plugin install wpdatatables --activate --allow-root
     sudo chmod -R 755 ./wp-core
     sudo chown -R gitpod:gitpod ./wp-core
     sudo chmod -R 755 ./wp-content
