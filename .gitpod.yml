@@ -18,11 +18,14 @@ tasks:
     sleep 10
     echo "Installing Wordpress..."
     docker exec -it gitpod-wpdev-wordpress wp core install --url="8000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --title="Gitpod Wordpress Development" --admin_user="admin" --admin_password="admin" --admin_email="you@example.com" --skip-email --allow-root
+    docker exec -it gitpod-wpdev-wordpress wp theme install happenstance --activate --allow-root
     sudo chmod -R 755 ./wp-core
     sudo chown -R gitpod:gitpod ./wp-core
     sudo chmod -R 755 ./wp-content
     sudo chown -R gitpod:gitpod ./wp-content
     # cd ./wp-content/themes && wget https://downloads.wordpress.org/theme/happenstance.3.0.1.zip && unzip happenstance*
+    # cd ./wp-content/plugins && wget https://downloads.wordpress.org/plugin/add-from-server.3.4.5.zip && unzip add-from-server*
+    # cd ./wp-content/plugins && wget https://downloads.wordpress.org/plugin/wpdatatables.zip && unzip wpdatatables*
 # Opens Wordpress in external browser
 # Tail the logs
   command: |
